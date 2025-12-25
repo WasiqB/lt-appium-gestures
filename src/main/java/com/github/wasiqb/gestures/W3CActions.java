@@ -180,37 +180,37 @@ public class W3CActions {
 
     public void zoomOut (final WebElement element, final int distance) {
         final var thumbDirection = new Point (0, -1);
-        final var thumbStart = getSwipeStartPosition (element);
-        final var thumbEnd = getSwipeEndPosition (thumbDirection, element, distance);
+        final var thumbEnd = getSwipeStartPosition (element);
+        final var thumbStart = getSwipeEndPosition (thumbDirection, element, distance);
 
         final var thumbFinger = new PointerInput (PointerInput.Kind.TOUCH, "Thumb Finger");
         final var thumbSequence = new Sequence (thumbFinger, 0);
 
         thumbSequence.addAction (
-            thumbFinger.createPointerMove (Duration.ofMillis (500), PointerInput.Origin.viewport (), thumbEnd.getX (),
-                thumbEnd.getY () + 5));
+            thumbFinger.createPointerMove (Duration.ofMillis (500), PointerInput.Origin.viewport (), thumbStart.getX (),
+                thumbStart.getY () + 5));
         thumbSequence.addAction (thumbFinger.createPointerDown (PointerInput.MouseButton.LEFT.asArg ()));
         thumbSequence.addAction (new Pause (thumbFinger, Duration.ofMillis (500)));
         thumbSequence.addAction (
-            thumbFinger.createPointerMove (Duration.ofMillis (300), PointerInput.Origin.viewport (), thumbStart.getX (),
-                thumbStart.getY ()));
+            thumbFinger.createPointerMove (Duration.ofMillis (300), PointerInput.Origin.viewport (), thumbEnd.getX (),
+                thumbEnd.getY ()));
         thumbSequence.addAction (thumbFinger.createPointerUp (PointerInput.MouseButton.LEFT.asArg ()));
 
         final var indexDirection = new Point (0, 1);
-        final var indexStart = getSwipeStartPosition (element);
-        final var indexEnd = getSwipeEndPosition (indexDirection, element, distance);
+        final var indexEnd = getSwipeStartPosition (element);
+        final var indexStart = getSwipeEndPosition (indexDirection, element, distance);
 
         final var indexFinger = new PointerInput (PointerInput.Kind.TOUCH, "Index Finger");
         final var indexSequence = new Sequence (indexFinger, 0);
 
         indexSequence.addAction (
-            indexFinger.createPointerMove (Duration.ofMillis (500), PointerInput.Origin.viewport (), indexEnd.getX (),
-                indexEnd.getY () - 5));
+            indexFinger.createPointerMove (Duration.ofMillis (500), PointerInput.Origin.viewport (), indexStart.getX (),
+                indexStart.getY () - 5));
         indexSequence.addAction (indexFinger.createPointerDown (PointerInput.MouseButton.LEFT.asArg ()));
         indexSequence.addAction (new Pause (indexFinger, Duration.ofMillis (500)));
         indexSequence.addAction (
-            indexFinger.createPointerMove (Duration.ofMillis (300), PointerInput.Origin.viewport (), indexStart.getX (),
-                indexStart.getY ()));
+            indexFinger.createPointerMove (Duration.ofMillis (300), PointerInput.Origin.viewport (), indexEnd.getX (),
+                indexEnd.getY ()));
         indexSequence.addAction (indexFinger.createPointerUp (PointerInput.MouseButton.LEFT.asArg ()));
 
         this.driver.perform (Arrays.asList (thumbSequence, indexSequence));
