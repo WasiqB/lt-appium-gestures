@@ -14,12 +14,20 @@ public class DragDropPage extends BasePage {
         super (driver);
     }
 
-    public void dragAndDrop (final String columnChar, final int index) {
+    public void dragAndDropAction (final String columnChar, final int index) {
         final var dragElement = this.wait.until (
             ExpectedConditions.elementToBeClickable (getDragElement (columnChar, index)));
         final var dropElement = this.wait.until (
             ExpectedConditions.elementToBeClickable (getDropElement (columnChar, index)));
         this.w3CActions.dragDrop (dragElement, dropElement);
+    }
+
+    public void dragAndDropCommands (final String columnChar, final int index) {
+        final var dragElement = this.wait.until (
+            ExpectedConditions.elementToBeClickable (getDragElement (columnChar, index)));
+        final var dropElement = this.wait.until (
+            ExpectedConditions.elementToBeClickable (getDropElement (columnChar, index)));
+        this.commands.dragDrop (dragElement, dropElement);
     }
 
     public String getSuccessMessageText () {

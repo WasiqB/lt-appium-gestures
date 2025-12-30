@@ -1,4 +1,4 @@
-package com.github.wasiqb.gestures;
+package com.github.wasiqb.gestures.android;
 
 import static java.util.Objects.isNull;
 
