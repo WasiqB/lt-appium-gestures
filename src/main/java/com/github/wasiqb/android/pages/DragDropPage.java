@@ -30,6 +30,14 @@ public class DragDropPage extends BasePage {
         this.commands.dragDrop (dragElement, dropElement);
     }
 
+    public void dragAndDropGestureCommands (final String columnChar, final int index) {
+        final var dragElement = this.wait.until (
+            ExpectedConditions.elementToBeClickable (getDragElement (columnChar, index)));
+        final var dropElement = this.wait.until (
+            ExpectedConditions.elementToBeClickable (getDropElement (columnChar, index)));
+        this.gestureCommands.dragDrop (dragElement, dropElement);
+    }
+
     public String getSuccessMessageText () {
         final var messageElement = this.wait.until (
             ExpectedConditions.visibilityOfElementLocated (this.successMessage));
