@@ -1,7 +1,7 @@
-package com.github.wasiqb.android.pages;
+package com.github.wasiqb.ios.pages;
 
 import io.appium.java_client.AppiumBy;
-import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.ios.IOSDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -11,7 +11,7 @@ public class SwipePage extends BasePage {
     private final By scrolledLogo = AppiumBy.accessibilityId ("WebdriverIO logo");
     private final By swipeArea    = AppiumBy.accessibilityId ("Swipe-screen");
 
-    public SwipePage (final AndroidDriver driver) {
+    public SwipePage (final IOSDriver driver) {
         super (driver);
     }
 

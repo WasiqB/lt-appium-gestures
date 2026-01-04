@@ -1,14 +1,14 @@
-package com.github.wasiqb.android.gestures;
+package com.github.wasiqb.ios.gestures;
 
 import com.google.common.collect.ImmutableMap;
-import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.ios.IOSDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebElement;
 
 public class GesturePluginCommands {
-    private final AndroidDriver driver;
+    private final IOSDriver driver;
 
-    public GesturePluginCommands (final AndroidDriver driver) {
+    public GesturePluginCommands (final IOSDriver driver) {
         this.driver = driver;
     }
 

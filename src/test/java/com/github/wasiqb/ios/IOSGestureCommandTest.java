@@ -1,36 +1,36 @@
-package com.github.wasiqb.android;
+package com.github.wasiqb.ios;
 
 import java.net.MalformedURLException;
 
-import com.github.wasiqb.android.gestures.GesturePluginCommands;
-import com.github.wasiqb.android.pages.DragDropPage;
-import com.github.wasiqb.android.pages.HomePage;
-import com.github.wasiqb.android.pages.SwipePage;
-import com.github.wasiqb.manager.AndroidManager;
+import com.github.wasiqb.ios.gestures.GesturePluginCommands;
+import com.github.wasiqb.ios.pages.DragDropPage;
+import com.github.wasiqb.ios.pages.HomePage;
+import com.github.wasiqb.ios.pages.SwipePage;
+import com.github.wasiqb.manager.IOSManager;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class AndroidGestureCommandTest {
-    private GesturePluginCommands androidCommands;
-    private AndroidManager        androidManager;
+public class IOSGestureCommandTest {
     private DragDropPage          dragDropPage;
     private HomePage              homePage;
+    private GesturePluginCommands iosCommands;
+    private IOSManager            iosManager;
     private SwipePage             swipePage;
 
     @BeforeClass
     public void setupClass () throws MalformedURLException {
-        this.androidManager = new AndroidManager ();
-        this.homePage = new HomePage (this.androidManager.getDriver ());
-        this.dragDropPage = new DragDropPage (this.androidManager.getDriver ());
-        this.swipePage = new SwipePage (this.androidManager.getDriver ());
-        this.androidCommands = this.homePage.getGestureCommands ();
+        this.iosManager = new IOSManager ();
+        this.homePage = new HomePage (this.iosManager.getDriver ());
+        this.dragDropPage = new DragDropPage (this.iosManager.getDriver ());
+        this.swipePage = new SwipePage (this.iosManager.getDriver ());
+        this.iosCommands = this.homePage.getGestureCommands ();
     }
 
     @AfterClass
     public void tearDownClass () {
-        this.androidManager.quit ();
+        this.iosManager.quit ();
     }
 
     @Test
@@ -49,16 +49,17 @@ public class AndroidGestureCommandTest {
     @Test
     public void testSwipeLeftRight () {
         this.homePage.openSwipePage ();
-        this.androidCommands.swipe (this.swipePage.getCarousal (), "left", 25);
-        this.androidCommands.swipe (this.swipePage.getCarousal (), "right", 25);
+        this.iosCommands.swipe (this.swipePage.getCarousal (), "left", 25);
+        this.iosCommands.swipe (this.swipePage.getCarousal (), "right", 25);
     }
 
     @Test
     public void testSwipeUpDown () throws InterruptedException {
         this.homePage.openSwipePage ();
-        this.androidCommands.swipe (this.swipePage.getSwipeArea (), "up", 50);
         Thread.sleep (5000);
-        this.androidCommands.swipe (this.swipePage.getSwipeArea (), "down", 50);
+        this.iosCommands.swipe (this.swipePage.getSwipeArea (), "up", 50);
+        Thread.sleep (5000);
+        this.iosCommands.swipe (this.swipePage.getSwipeArea (), "down", 50);
         Thread.sleep (5000);
     }
 }

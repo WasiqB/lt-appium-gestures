@@ -1,12 +1,12 @@
-package com.github.wasiqb;
+package com.github.wasiqb.android;
 
 import java.net.MalformedURLException;
 
-import com.github.wasiqb.gestures.android.W3CActions;
+import com.github.wasiqb.android.gestures.W3CActions;
+import com.github.wasiqb.android.pages.DragDropPage;
+import com.github.wasiqb.android.pages.HomePage;
+import com.github.wasiqb.android.pages.SwipePage;
 import com.github.wasiqb.manager.AndroidManager;
-import com.github.wasiqb.pages.DragDropPage;
-import com.github.wasiqb.pages.HomePage;
-import com.github.wasiqb.pages.SwipePage;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;

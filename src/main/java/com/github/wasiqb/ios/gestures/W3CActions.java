@@ -1,4 +1,4 @@
-package com.github.wasiqb.android.gestures;
+package com.github.wasiqb.ios.gestures;
 
 import static java.util.Objects.isNull;
 
@@ -6,7 +6,7 @@ import java.time.Duration;
 import java.util.Arrays;
 import java.util.Collections;
 
-import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.ios.IOSDriver;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebElement;
@@ -15,9 +15,9 @@ import org.openqa.selenium.interactions.PointerInput;
 import org.openqa.selenium.interactions.Sequence;
 
 public class W3CActions {
-    private final AndroidDriver driver;
+    private final IOSDriver driver;
 
-    public W3CActions (final AndroidDriver driver) {
+    public W3CActions (final IOSDriver driver) {
         this.driver = driver;
     }
 

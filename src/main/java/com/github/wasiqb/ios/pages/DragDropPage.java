@@ -1,16 +1,16 @@
-package com.github.wasiqb.android.pages;
+package com.github.wasiqb.ios.pages;
 
 import java.text.MessageFormat;
 
 import io.appium.java_client.AppiumBy;
-import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.ios.IOSDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class DragDropPage extends BasePage {
-    private final By successMessage = AppiumBy.androidUIAutomator ("new UiSelector().textStartsWith(\"You made it\")");
+    private final By successMessage = AppiumBy.iOSNsPredicateString ("label BEGINSWITH \"You made it\"");
 
-    public DragDropPage (final AndroidDriver driver) {
+    public DragDropPage (final IOSDriver driver) {
         super (driver);
     }
 
