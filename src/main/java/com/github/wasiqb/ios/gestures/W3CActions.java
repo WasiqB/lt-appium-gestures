@@ -2,6 +2,7 @@ package com.github.wasiqb.ios.gestures;
 
 import static java.util.Objects.isNull;
 
+import java.text.MessageFormat;
 import java.time.Duration;
 import java.util.Arrays;
 import java.util.Collections;
@@ -108,6 +109,8 @@ public class W3CActions {
         final var direction = new Point (0, -1);
         final var start = getSwipeStartPosition (element);
         final var end = getSwipeEndPosition (direction, element, distance);
+
+        System.out.println (MessageFormat.format ("Swipe from {0} to {1}", start, end));
 
         final var finger = new PointerInput (PointerInput.Kind.TOUCH, "Finger 1");
         final var sequence = new Sequence (finger, 0);

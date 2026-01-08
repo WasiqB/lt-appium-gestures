@@ -35,6 +35,7 @@ public class IOSManager {
         final var options = new XCUITestOptions ();
         options.setDeviceName ("iPhone 17 Pro")
             .setPlatformVersion ("26.2")
+            .simulatorTracePointer ()
             .setApp (Path.of (System.getProperty ("user.dir"), "src/test/resources", "wdio-demo.zip")
                 .toString ());
         return options;

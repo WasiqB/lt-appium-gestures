@@ -22,6 +22,14 @@ public class DragDropPage extends BasePage {
         this.w3CActions.dragDrop (dragElement, dropElement);
     }
 
+    public void dragAndDropActionClass (final String columnChar, final int index) {
+        final var dragElement = this.wait.until (
+            ExpectedConditions.elementToBeClickable (getDragElement (columnChar, index)));
+        final var dropElement = this.wait.until (
+            ExpectedConditions.elementToBeClickable (getDropElement (columnChar, index)));
+        this.actionsClass.dragDrop (dragElement, dropElement);
+    }
+
     public void dragAndDropCommands (final String columnChar, final int index) {
         final var dragElement = this.wait.until (
             ExpectedConditions.elementToBeClickable (getDragElement (columnChar, index)));

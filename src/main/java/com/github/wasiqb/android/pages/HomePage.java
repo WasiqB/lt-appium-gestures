@@ -3,6 +3,7 @@ package com.github.wasiqb.android.pages;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class HomePage extends BasePage {
@@ -14,18 +15,27 @@ public class HomePage extends BasePage {
         super (driver);
     }
 
+    public WebElement getBrowserTab () {
+        return this.wait.until (ExpectedConditions.elementToBeClickable (this.browserTab));
+    }
+
+    public WebElement getDragDropTab () {
+        return this.wait.until (ExpectedConditions.elementToBeClickable (this.dragDropTab));
+    }
+
+    public WebElement getSwipeTab () {
+        return this.wait.until (ExpectedConditions.elementToBeClickable (this.swipeTab));
+    }
+
     public void openBrowserPage () {
-        final var browserTabElement = this.wait.until (ExpectedConditions.elementToBeClickable (this.browserTab));
-        this.w3CActions.tap (browserTabElement);
+        this.w3CActions.tap (getBrowserTab ());
     }
 
     public void openDragDropPage () {
-        final var dragDropTabElement = this.wait.until (ExpectedConditions.elementToBeClickable (this.dragDropTab));
-        this.w3CActions.tap (dragDropTabElement);
+        this.w3CActions.tap (getDragDropTab ());
     }
 
     public void openSwipePage () {
-        final var swipeTabElement = this.wait.until (ExpectedConditions.elementToBeClickable (this.swipeTab));
-        this.w3CActions.tap (swipeTabElement);
+        this.w3CActions.tap (getSwipeTab ());
     }
 }

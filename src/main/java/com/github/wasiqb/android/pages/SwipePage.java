@@ -7,9 +7,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class SwipePage extends BasePage {
-    private final By carousal     = AppiumBy.accessibilityId ("Carousel");
-    private final By scrolledLogo = AppiumBy.accessibilityId ("WebdriverIO logo");
-    private final By swipeArea    = AppiumBy.accessibilityId ("Swipe-screen");
+    private final By carousal             = AppiumBy.accessibilityId ("Carousel");
+    private final By scrolledLogo         = AppiumBy.accessibilityId ("WebdriverIO logo");
+    private final By scrolledSelectorLogo = AppiumBy.androidUIAutomator (
+        "new UiScrollable(new UiSelector().scrollable(true)).setAsVerticalList().setMaxSearchSwipes(5).scrollIntoView(new UiSelector().description(\"WebdriverIO logo\"))");
+    private final By swipeArea            = AppiumBy.accessibilityId ("Swipe-screen");
 
     public SwipePage (final AndroidDriver driver) {
         super (driver);
@@ -21,6 +23,10 @@ public class SwipePage extends BasePage {
 
     public WebElement getScrolledLogo () {
         return this.wait.until (ExpectedConditions.visibilityOfElementLocated (this.scrolledLogo));
+    }
+
+    public WebElement getScrolledSelectorLogo () {
+        return this.wait.until (ExpectedConditions.visibilityOfElementLocated (this.scrolledSelectorLogo));
     }
 
     public WebElement getSwipeArea () {
